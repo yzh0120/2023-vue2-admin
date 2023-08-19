@@ -1,0 +1,82 @@
+
+*{
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app,
+.el-container
+ {
+  height: 100% !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  box-sizing: border-box;
+  background-color: #f8f8f8;
+  font-size: 14px;
+}
+/////////////////////////////
+
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+
+  .default_1_el-container{
+    //侧边栏
+    .el-aside{
+      .default_2_div{
+        transition: width 0.28s;
+        width: 210px !important;
+        height: 100%;
+        overflow: hidden;
+        //滚动条
+        .default_left_2_shu_el-scrollbar.el-scrollbar{
+          .el-scrollbar__wrap{
+            overflow-x: hidden !important;
+            height: 100% !important;
+            .el-scrollbar__view{
+
+            }
+          }
+          .el-scrollbar__bar.is-horizontal{
+
+          }
+          .el-scrollbar__bar.is-vertical{
+
+          }
+        }
+      }
+    }
+    .el-container.default_1_head_main{
+      //头部
+      .el-header.default_header_2_el-header{
+
+      }
+      //主体
+      .el-main.default_2_el-main{
+        // 滚动条
+        .default_main_2_shu_el-scrollbar.el-scrollbar{
+          .el-scrollbar__wrap{
+            .el-scrollbar__view{
+              //重要
+              #app_main{
+
+              }
+            }
+          }
+          .el-scrollbar__bar.is-horizontal{
+
+          }
+          .el-scrollbar__bar.is-vertical{
+
+          }
+        }
+      }
+    }
+    
+  }
+} 

@@ -18,6 +18,7 @@ function fnStatic() {
 }
 
 module.exports = defineConfig({
+
   // transpileDependencies: true,
   publicPath: fnStatic(),
   configureWebpack: {
@@ -29,6 +30,7 @@ module.exports = defineConfig({
         '@api': path.resolve(__dirname, './src/api'),
       }
     },
+    
     // plugins: [
     //   new webpack.ProvidePlugin({
     //     $: "jquery",

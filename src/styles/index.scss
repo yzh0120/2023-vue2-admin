@@ -1,3 +1,4 @@
+// @import "./var.scss";
 
 *{
   box-sizing: border-box;
@@ -26,7 +27,9 @@ body,
   margin-top: 60px;
 
   .default_1_el-container{
-    //侧边栏
+    /******************************************************
+      侧边栏
+    */
     .el-aside{
       .default_2_div{
         transition: width 0.28s;
@@ -52,11 +55,15 @@ body,
       }
     }
     .el-container.default_1_head_main{
-      //头部
+      /******************************************************
+      头部
+    */
       .el-header.default_header_2_el-header{
 
       }
-      //主体
+      /*****************************************************
+      主体
+    */
       .el-main.default_2_el-main{
         // 滚动条
         .default_main_2_shu_el-scrollbar.el-scrollbar{

@@ -1,4 +1,5 @@
 let layout = () => import("@/layout/index.vue")
+import baseForm from "./modules/1-base-form.js"
 
 const routes = [
   {
@@ -32,6 +33,7 @@ const routes = [
     name: 'login',
     component: () => import("@/views/base/login.vue")
   },
+  baseForm, //表单
 ]
 
 export default routes

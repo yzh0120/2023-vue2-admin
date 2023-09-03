@@ -19,6 +19,7 @@ export default {
       commit
     }, list) {
       return new Promise(resolve => {
+        //1-递归后台传来的多维路由，替换字段
         let tempRoutes = replaceField(list) //change(translateDataToTree(list))
          //记录此角色全部的路由,方便在left菜单展示 仅一次
         commit('m_set_routes', tempRoutes)

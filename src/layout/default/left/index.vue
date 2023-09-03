@@ -23,7 +23,7 @@ export default {
     };
   },
   mounted() { 
-    this.$store.dispatch("router/a_HeBingRoleRoutes",[])
+    
   },
   watch: {
     $route() {

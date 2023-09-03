@@ -126,66 +126,7 @@ export default {
 </script> 
 
 
-<style lang="scss">
-@import "@/styles/var.scss";
-.el-menu{
-  background-color: $menuBg;
-}
-//样式权重最低的子叶菜单样式  会被非一级的某行菜单栏(.el-submenu .el-menu-item)的样式覆盖
-.el-menu-item {
-	background-color: $menuBg !important; //背景颜色
-	color: $textcolor; // 默认字体颜色
 
-	&:hover {
-		color: $hoverColor !important; //字体颜色
-		i {
-			color: $hoverColor !important; //字体颜色
-		}
-	}
-}
-//样式权重最低的母目录样式
-.el-submenu__title {
-	background-color: $menuBg !important; //背景颜色
-	color: $textcolor; // 默认字体颜色
-
-	&:hover {
-		color: $hoverColor !important; //字体颜色
-		i {
-			color: $hoverColor !important; //字体颜色
-		}
-	}
-}
-//非一级的子叶菜单栏样式
-.el-submenu .el-menu-item {
-	
-	background-color: $submenuBg !important; //背景色
-
-	&:hover {
-		color: $hoverColor !important; //字体颜色
-		i {
-			color: $hoverColor !important; //字体颜色
-		}
-	}
-}
-	// 某行激活的子叶菜单栏样式            多选择器是为了权重
-.el-menu li.is-active.el-menu-item {
-
-	color: $activeTextColor !important; // 字体激活颜色
-	background-color: $activeBgColor !important; // 背景激活颜色
-	&:hover {
-		i {
-			color: $activeTextColor !important; //字体颜色
-		}
-	}
-}
-//当点击了子叶菜单时的母展开菜单样式
-.is-active > .el-submenu__title {
-	color: $activeTextColor !important; //的文本颜色
-	i {
-		color: $activeTextColor !important;
-	}
-}
-</style>
 
 
 

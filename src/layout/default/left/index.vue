@@ -1,8 +1,8 @@
 <template>
-  <el-aside width="auto" :class="{ 'isCollapse': isCollapse }">
+  <el-aside width="auto" >
 
-    <div class="default_2_div">
-      <!-- <Logo></Logo> -->
+    <div class="default_2_div" :class="{ 'isCollapse': isCollapse }">
+      <Logo></Logo>
       <!-- 50px 是logo组件的大小 //写死的布局数据-->
       <el-scrollbar class="default_left_2_shu_el-scrollbar" ref="scrollbarRef"
         style="height:calc(100% - 50px) !important">
@@ -17,6 +17,7 @@
 
 <script>
 import menutree from "./MenuTree.vue";
+import Logo from "./Logo.vue";
 export default {
   data() {
     return {
@@ -46,7 +47,8 @@ export default {
     },
   },
   components: {
-    menutree
+    menutree,
+    Logo
   },
   computed: {
     routes() {
@@ -61,6 +63,6 @@ export default {
 
 <style lang="scss" scoped>
 .isCollapse {
-  width: 50px !important;
+  width: 53px !important;
 }
 </style>

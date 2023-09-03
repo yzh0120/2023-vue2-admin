@@ -1,10 +1,11 @@
 <template>
-  <el-aside width="240px">
-    <!-- {{ routes }} -->
-    <div class="default_2_div" :class="{ 'isCollapse': isCollapse }">
+  <el-aside width="auto" :class="{ 'isCollapse': isCollapse }">
+
+    <div class="default_2_div">
       <!-- <Logo></Logo> -->
       <!-- 50px 是logo组件的大小 //写死的布局数据-->
-      <el-scrollbar class="default_left_2_shu_el-scrollbar" ref="scrollbarRef" style="height:calc(100% - 50px) !important">
+      <el-scrollbar class="default_left_2_shu_el-scrollbar" ref="scrollbarRef"
+        style="height:calc(100% - 50px) !important">
         <el-menu :collapse="isCollapse" :collapse-transition="false" :unique-opened="false" :default-active="activeName"
           @select="selectMenu">
           <menutree :data="routes" />
@@ -22,8 +23,8 @@ export default {
       activeName: this.$route.name,
     };
   },
-  mounted() { 
-    
+  mounted() {
+
   },
   watch: {
     $route() {
@@ -59,4 +60,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.isCollapse {
+  width: 50px !important;
+}
 </style>

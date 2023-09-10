@@ -105,6 +105,8 @@ import 'echarts/lib/component/dataZoom'
 import 'v-charts/lib/style.css'
 import VCharts from 'v-charts'
 Vue.use(VCharts)
+//v-charts组件出现（undefined (reading ‘map‘）bug解决方案
+Vue._watchers = Vue.prototype._watchers = [];
 
 // Vue.config.productionTip = false
 

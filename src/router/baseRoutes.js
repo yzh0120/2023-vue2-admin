@@ -6,6 +6,10 @@ import fastCopy from "./modules/3-fastCopy.js"
 import localCopyjs from "./modules/5-localCopy.js"
 import style from "./modules/6-style.js"
 import svgIcon from "./modules/7-svgIcon.js"
+import socket from "./modules/8-socket.js"
+import vCharts from "./modules/10-vCharts.js"
+import elementUI from "./modules/11-element-ui.js"
+import print from "./modules/12-print.js"
 
 const routes = [
   {
@@ -44,7 +48,11 @@ const routes = [
   fastCopy,
   localCopyjs,
   style,
-  svgIcon
+  svgIcon,
+  socket,
+  vCharts,
+  elementUI,
+  print
 ]
 
 export default routes

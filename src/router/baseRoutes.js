@@ -1,6 +1,7 @@
 let layout = () => import("@/layout/index.vue")
 import baseForm from "./modules/1-base-form.js"
 import vxeTable from "./modules/2-vxe-table.js"
+import fastCopy from "./modules/3-fastCopy.js"
 
 const routes = [
   {
@@ -36,6 +37,7 @@ const routes = [
   },
   baseForm, //表单
   vxeTable,
+  fastCopy
 ]
 
 export default routes

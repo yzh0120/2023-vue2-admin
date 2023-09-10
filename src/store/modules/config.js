@@ -10,7 +10,7 @@ export default {
     alert401: false,
     dataItem: [],//数据字典
     tableheight: screenHeight - 280 + "px",//vxetable高度
-    navTableHeight : screenHeight - 140 + "px"//vxetable高度
+    navTableHeight : screenHeight - 120 + "px"//vxetable高度
     
   },
   mutations: {

@@ -73,12 +73,12 @@ export default {
             title: "后缀输入框",
             append: "后缀文字",
           },
-          // {
-          //   type: "input",
-          //   field: "_input_btn",
-          //   title: "按钮输入框",
-          //   btn: "搜索",
-          // },
+          {
+            type: "input",
+            field: "_input_btn",
+            title: "按钮输入框",
+            btn: "搜索",
+          },
           {
             type: "password",
             field: "_password",

@@ -18,9 +18,9 @@
     <template slot="prepend" v-if="item.prepend">{{ item.prepend }}</template>
     <template slot="append" v-if="item.append">{{ item.append }}</template>
 
-    <!-- <el-button @click="search" slot="append" v-if="item.btn" :loading="item.loading">{{
+    <el-button @click="search" slot="append" v-if="item.btn" :loading="item.loading">{{
       item.btn
-    }}</el-button> -->
+    }}</el-button>
   </el-input>
   <!--  -->
 </template>

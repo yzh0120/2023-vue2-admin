@@ -10,6 +10,7 @@ import socket from "./modules/8-socket.js"
 import vCharts from "./modules/10-vCharts.js"
 import elementUI from "./modules/11-element-ui.js"
 import print from "./modules/12-print.js"
+import tagsView from "./modules/13-tagsView.js"
 
 const routes = [
   {
@@ -52,7 +53,8 @@ const routes = [
   socket,
   vCharts,
   elementUI,
-  print
+  print,
+  tagsView
 ]
 
 export default routes

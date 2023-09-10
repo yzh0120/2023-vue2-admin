@@ -5,18 +5,7 @@ import router from './router/index'//路由
 import '@/styles/index.scss'; //全局样式
 
 
-/** 全局插件 *******************************************************************************************************/
-//elemnet
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
-Vue.use(ElementUI);
 
-//vxe
-import XEUtils from 'xe-utils'
-Vue.prototype.$utils = XEUtils
-import VXETable from 'vxe-table'
-import 'vxe-table/lib/style.css'
-Vue.use(VXETable)
 
 /** 自定义组件 *******************************************************************************************************/
 //图标组件
@@ -30,6 +19,16 @@ Vue.component("page", page)
 //baseform
 import baseForm from '@/components/base-form'
 Vue.component("baseForm", baseForm)
+
+//文件
+import fileList from '@/components/file/fileList'
+Vue.component("fileList", fileList)
+
+import fileListShow from '@/components/file/fileListShow'
+Vue.component("fileListShow", fileListShow)
+
+import oneFile from '@/components/file/oneFile'
+Vue.component("oneFile", oneFile)
 
 /** mixin *******************************************************************************************************/
 import baseFormMixin from "@/mixins/baseForm";
@@ -46,6 +45,19 @@ Vue.prototype.$validator = validator;
 
 //文件后缀名
 Vue.prototype.$fileType = ["pdf", "doc", "docx", "xls", "xlsx", "jpg", "jpeg", "gif", "png"]
+
+/** 插件 *******************************************************************************************************/
+//elemnet
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
+
+//vxe
+import XEUtils from 'xe-utils'
+Vue.prototype.$utils = XEUtils
+import VXETable from 'vxe-table'
+import 'vxe-table/lib/style.css'
+Vue.use(VXETable)
 
 // Vue.config.productionTip = false
 

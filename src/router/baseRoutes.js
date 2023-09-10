@@ -3,6 +3,10 @@ import baseForm from "./modules/1-base-form.js"
 import vxeTable from "./modules/2-vxe-table.js"
 import fastCopy from "./modules/3-fastCopy.js"
 
+import localCopyjs from "./modules/5-localCopy.js"
+import style from "./modules/6-style.js"
+import svgIcon from "./modules/7-svgIcon.js"
+
 const routes = [
   {
     path: "/",
@@ -37,7 +41,10 @@ const routes = [
   },
   baseForm, //表单
   vxeTable,
-  fastCopy
+  fastCopy,
+  localCopyjs,
+  style,
+  svgIcon
 ]
 
 export default routes

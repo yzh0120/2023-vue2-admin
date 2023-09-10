@@ -73,6 +73,37 @@ Vue.directive("enterMoney", {
     })
   }
 })
+/** 自定义过滤器 *******************************************************************************************************/
+//格式日期
+Vue.filter("formatDate", (value, format) => {
+  if (value != "0001-01-01 00:00:00" && value != "0001-01-01T00:00:00" && value) {
+    return fn.formatDate(value, format)
+  } else {
+    return "";
+  }
+})
+///格式文件大小
+Vue.filter("fileSize", (value) => {
+  if (value) {
+    return fn.numberFormatter(value);
+  } else {
+    return "";
+  }
+})
+//格式金额
+Vue.filter("formatMoney", (value, num) => {
+  if (value != "undefined" && value != undefined && value != null) {
+    return formatMoney(value, num || 2)
+  }
+})
+//格式金额
+Vue.filter("formatMoney_null", (value, num) => {
+  if (value) {
+    return fn.formatMoney(value, num || 2)
+  } else {
+    return ""
+  }
+})
 
 /** 插件 *******************************************************************************************************/
 //VueSocketIO

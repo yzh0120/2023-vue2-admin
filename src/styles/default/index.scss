@@ -2,6 +2,7 @@
 @import "../var.scss";
 @import "./left.scss";
 
+//default组件的el-container
 .default_1_el-container{
   
   /******************************************************
@@ -44,7 +45,7 @@
     头部
   */
     .el-header.default_header_2_el-header{
-
+      padding: 0px !important;
     }
     /*****************************************************
     主体

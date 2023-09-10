@@ -1,5 +1,5 @@
 <template>
-    <el-header :height="heigth" class="default_header_2_el-header">
+    <el-header height="auto" class="default_header_2_el-header">
       <navbar></navbar>
     <tagsView></tagsView>
     </el-header>
@@ -15,7 +15,7 @@ export default {
   },
   data() {
     return {
-      heigth: "84px",
+      // heigth: "70px",
     };
   },
 }

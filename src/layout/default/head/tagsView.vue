@@ -264,7 +264,7 @@ export default {
 
 <style lang="scss" scoped>
 .header_tagsView_div {
-  height: 34px;
+  height: 34px;//控制整体高度
   flex: 1;
   background-color: #fff;
   border-bottom: 1px solid #f1f2f3;

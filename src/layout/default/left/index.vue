@@ -63,6 +63,6 @@ export default {
 
 <style lang="scss" scoped>
 .isCollapse {
-  width: 53px !important;
+  width: 53px !important;//控制整体高度
 }
 </style>

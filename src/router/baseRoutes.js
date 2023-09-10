@@ -1,5 +1,6 @@
 let layout = () => import("@/layout/index.vue")
 import baseForm from "./modules/1-base-form.js"
+import vxeTable from "./modules/2-vxe-table.js"
 
 const routes = [
   {
@@ -34,6 +35,7 @@ const routes = [
     component: () => import("@/views/base/login.vue")
   },
   baseForm, //表单
+  vxeTable,
 ]
 
 export default routes

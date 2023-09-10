@@ -34,7 +34,7 @@ export default {
 <style lang="scss" scoped>
 .navbar {
   border-bottom: 1px solid #f1f2f3;
-  height: 50px;
+  height: 46px;//控制整体高度
   // background-color: var(--bg-topBar);
   flex-shrink: 0;
   display: flex;

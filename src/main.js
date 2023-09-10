@@ -30,6 +30,18 @@ Vue.component("fileListShow", fileListShow)
 import oneFile from '@/components/file/oneFile'
 Vue.component("oneFile", oneFile)
 
+//alert
+import alert from '@/components/alert'
+Vue.component("alert", alert)
+
+//pager
+import basePager from '@/components/base-pager'
+Vue.component("pager", basePager)
+
+//panel
+import panel from '@/components/panel'
+Vue.component("panel", panel)
+
 /** mixin *******************************************************************************************************/
 import baseFormMixin from "@/mixins/baseForm";
 Vue.mixin(baseFormMixin)
@@ -46,6 +58,18 @@ Vue.prototype.$validator = validator;
 //文件后缀名
 Vue.prototype.$fileType = ["pdf", "doc", "docx", "xls", "xlsx", "jpg", "jpeg", "gif", "png"]
 
+/** 自定义指令 *******************************************************************************************************/
+//对金额的输入框去除逗号（,）时，只需加上指令 v-enter-money 即可
+Vue.directive("enterMoney", {
+  bind: function (el) {
+    el = el.nodeName == "INPUT" ? el : el.children[0];
+    el.addEventListener("change", function () {
+      el.value = el.value.replace(/,|，|\s/gi, "");
+      el.dispatchEvent(new Event("input"));
+    })
+  }
+})
+
 /** 插件 *******************************************************************************************************/
 //elemnet
 import ElementUI from 'element-ui';
@@ -58,6 +82,12 @@ Vue.prototype.$utils = XEUtils
 import VXETable from 'vxe-table'
 import 'vxe-table/lib/style.css'
 Vue.use(VXETable)
+
+//v-charts
+import 'echarts/lib/component/dataZoom'
+import 'v-charts/lib/style.css'
+import VCharts from 'v-charts'
+Vue.use(VCharts)
 
 // Vue.config.productionTip = false
 

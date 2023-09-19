@@ -63,6 +63,11 @@ export default {
         name: "change",
         value: nowValue,
       });
+       //兼容以前//无效
+      this.$emit("baseFormEvent", {
+        name: "time",
+        value: nowValue,
+      });
     },
   },
 };

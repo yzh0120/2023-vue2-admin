@@ -29,6 +29,8 @@ export default {
   methods: {
     change(e) {
       this.$emit("baseFormEvent", { name: "change", value: e });
+      //兼容以前
+      this.$emit("baseFormEvent", { name: "checkbox", value: e });
     },
   },
   computed: {

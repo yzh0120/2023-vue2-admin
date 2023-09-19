@@ -34,6 +34,11 @@ export default {
         name: "select",
         value: nowValue,
       });
+      //兼容以前
+      this.$emit("baseFormEvent", {
+        name: "auto",
+        value: nowValue,
+      });
     },
   },
   computed: {},

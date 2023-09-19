@@ -37,6 +37,8 @@ export default {
     change(e) {
       // 默认 true 、false
       this.$emit("baseFormEvent", { name: "change", value: e });
+      //兼容以前
+      this.$emit("baseFormEvent", { name: "switch", value: e });
     },
     // tooltipTitle(data, status) {
     //   let active = data.av ? data.av : true;

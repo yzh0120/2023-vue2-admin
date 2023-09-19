@@ -84,7 +84,7 @@ export default {
     change(nowValue) {
       console.log(this.xxx);
       this.$emit("baseFormEvent", {
-        name: "treeselect",
+        name: "change",
         value: nowValue,
       });
     },

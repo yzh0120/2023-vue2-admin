@@ -60,7 +60,7 @@ export default {
     change(nowValue) {
       //无效
       this.$emit("baseFormEvent", {
-        name: "time",
+        name: "change",
         value: nowValue,
       });
     },

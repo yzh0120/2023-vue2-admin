@@ -31,7 +31,7 @@ export default {
     focus() {},
     handleSelect(nowValue) {
       this.$emit("baseFormEvent", {
-        name: "auto",
+        name: "select",
         value: nowValue,
       });
     },

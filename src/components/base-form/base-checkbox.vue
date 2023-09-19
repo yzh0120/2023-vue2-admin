@@ -28,7 +28,7 @@ export default {
   },
   methods: {
     change(e) {
-      this.$emit("baseFormEvent", { name: "checkbox", value: e });
+      this.$emit("baseFormEvent", { name: "change", value: e });
     },
   },
   computed: {

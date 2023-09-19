@@ -68,12 +68,12 @@ export default {
         value: value,
       });
     },
-    search() {
-      this.$emit("baseFormEvent", {
-        name: "btn",
-        value: this.data[this.item.field],
-      });
-    },
+    // search() {
+    //   this.$emit("baseFormEvent", {
+    //     name: "btn",
+    //     value: this.data[this.item.field],
+    //   });
+    // },
     input(value) {
       this.$emit("baseFormEvent", {
         name: "input",

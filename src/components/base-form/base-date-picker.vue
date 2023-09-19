@@ -61,7 +61,7 @@ export default {
   methods: {
     change(nowValue) {
       this.$emit("baseFormEvent", {
-        name: "date",
+        name: "change",
         value: nowValue,
       });
     },

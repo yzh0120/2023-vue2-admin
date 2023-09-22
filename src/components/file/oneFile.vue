@@ -94,6 +94,7 @@ export default {
           }
         ).then((res) => {
           if (res.code == 200) {
+            this.$emit("getFile", {data:res.data})
             this.uploadObj.detail = res.data;
             //如果是onlyOne模式 那个只会显示和id匹配的一个
             if (this.mode == "onlyOne") {

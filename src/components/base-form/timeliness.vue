@@ -1,8 +1,10 @@
 <template>
-  <!--
-       <timeliness  :obj="formInfo.data" field="toTime" @transmit="ggg" required
+  <!-- <el-form-item :prop="field" :rules="{ required: required, message: '此项不能为空', trigger: ['change','blur'] }" label-width="0px">
+    
+  
+          <timeliness :fvalue="formInfo.data.toTime" :obj="formInfo.data" field="toTime" @transmit="ggg" required
           p="请选择申请人证件有效期结束日" />
-     -->
+        -->
     <DatePicker :id="params.name+params.prop"
     style="width: 100%;"
                 v-model="value"
@@ -81,38 +83,22 @@ export default {
     }
   },
   watch: {
-            "obj":{
-            handler(val, oldVal) {
-          // 监听父组件传来的默认值
-          if (this.obj[this.field]) {
-            this.value = this.obj[this.field]
+    'fvalue': {
+      handler(val, oldVal) {
+        // 监听父组件传来的默认值
+        // if (val) {
+          this.value = val
+        // }
+        console.log(this.val,"val")
+        this.$nextTick(() => {
+          // 如果默认值是9999-12-31 则认为是长期
+          if (val === '9999-12-31') {
+            document.querySelector(`#${this.params.name + this.params.prop}`).value = '长期'
           }
-          console.log(this.obj[this.field],"this.obj[this.field]")
-          this.$nextTick(() => {
-            // 如果默认值是9999-12-31 则认为是长期
-            if (this.obj[this.field]?.includes('9999-12-31')) {
-              document.querySelector(`#${this.params.name + this.params.prop}`).value = '长期'
-            }
-          })
-        },
-        immediate:true
-        },
-    // 'fvalue': {
-    //   handler(val, oldVal) {
-    //     // 监听父组件传来的默认值
-    //     if (val) {
-    //       this.value = val
-    //     }
-    //     console.log(this.val,"val")
-    //     this.$nextTick(() => {
-    //       // 如果默认值是9999-12-31 则认为是长期
-    //       if (val === '9999-12-31') {
-    //         document.querySelector(`#${this.params.name + this.params.prop}`).value = '长期'
-    //       }
-    //     })
-    //   },
-    //   immediate:true
-    // }
+        })
+      },
+      immediate:true
+    }
   },
   created() {
   },
@@ -126,7 +112,7 @@ export default {
       // alert(2)
       // 如果在获取焦点的时候清空了时间那么失去焦点的时候再把之前设置的长期时间补回去
       if (this.value === null) {
-        this.value = this.obj[this.field]//this.fvalue
+        this.value = this.fvalue
       }
       this.$nextTick(() => {
         // 如果传递给父组件的时间是一样的不会触发watch事件 所以在这个地方重新设置一下长期或者是具体时间

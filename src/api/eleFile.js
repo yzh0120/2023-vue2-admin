@@ -37,7 +37,7 @@ export function uploadFile(formData, pathUrl) {
 
 
 //下載文件流 get
-export function download(params = {}, downloadUrl,method="get") {
+export function download(params = {}, downloadUrl, method = "get") {
   if (downloadUrl == "pre") {
     if (/.xls|.xlsx|.doc|.docx|.ppt|.pptx/g.test(params.fileUrl)) {
       var ele = `
@@ -64,10 +64,10 @@ export function download(params = {}, downloadUrl,method="get") {
   let finallyUrl
   if (downloadUrl) {
     finallyUrl = type
-  } else { 
+  } else {
     finallyUrl = "/system/file_annexes/download"
   }
- 
+
   axios({
     method: method,
     url: finallyUrl,
@@ -121,25 +121,36 @@ export function download(params = {}, downloadUrl,method="get") {
 }
 
 //url下载文件流
-// export function download_url(url) {
-//   let type = url.split("/").pop()
-//   console.log(type,"type")
-//   // let url  = encodeURIComponent(urll)
-//   const link = document.createElement('a');
-//   // 这里是将链接地址url转成blob地址，
-//   fetch(url).then(res => res.blob()).then(blob => { 
-//     link.href = URL.createObjectURL(blob)
-   
-//       // 下载文件的名称及文件类型后缀
-//       link.download = type; 
-//       document.body.appendChild(link)
-//       link.click()
-//       //在资源下载完成后 清除 占用的缓存资源
-//       window.URL.revokeObjectURL(link.href);
-//       document.body.removeChild(link);
-//   });
-      
-// }
+export async function download_url(urll) {
+  // let url  = encodeURIComponent(urll)
+  let url = urll
+  let type = url.split("/").pop()
+  console.log(type, "type")
+ 
+
+  // 这里是将链接地址url转成blob地址，
+  await fetch(url, {
+      mode: 'no-cors', // 必要设置，解决跨域
+    }).then(res => {
+      console.log(res, "---");
+      return res.blob()
+    })
+    .then(blob => {
+      console.log(blob, "blob")
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob)
+      // 下载文件的名称及文件类型后缀
+      link.download = type;
+      document.body.appendChild(link)
+      link.click()
+      //在资源下载完成后 清除 占用的缓存资源
+      window.URL.revokeObjectURL(link.href);
+      document.body.removeChild(link);
+    });
+
+
+}
+
 
 
 //通过ids删除文件

@@ -8,6 +8,7 @@
 import pdf from 'vue-pdf'
 import CMapReaderFactory from 'vue-pdf/src/CMapReaderFactory.js';
 import axios from 'axios';
+import * as eleFileApi from "@/api/eleFile"
 export default {
   components: {
     pdf
@@ -24,7 +25,8 @@ export default {
     }
   },
   mounted() {
-    this.download({ fileId: "1691994924131065857" })
+     this.download({ fileId: "1691994924131065857" })
+    //eleFileApi.download_url("https://szdbtest.zksj.com.cn/szdb-integrated-api/2023/08/f1f4b37bbad24ca8b6cf1607e86229cb.pdf")
   },
   methods: {
     download() {

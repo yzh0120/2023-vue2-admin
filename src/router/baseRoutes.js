@@ -7,6 +7,7 @@ import localCopyjs from "./modules/5-localCopy.js"
 import style from "./modules/6-style.js"
 import svgIcon from "./modules/7-svgIcon.js"
 import socket from "./modules/8-socket.js"
+import pdf from "./modules/9-pdf.js"
 import vCharts from "./modules/10-vCharts.js"
 import elementUI from "./modules/11-element-ui.js"
 import print from "./modules/12-print.js"
@@ -51,6 +52,7 @@ const routes = [
   style,
   svgIcon,
   socket,
+  pdf,
   vCharts,
   elementUI,
   print,

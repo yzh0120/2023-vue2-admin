@@ -46,6 +46,12 @@ Vue.component("panel", panel)
 import navPage from '@/components/base/navPage'
 Vue.component("navPage", navPage)
 
+//pdfShowAll
+import pdfShowAll from '@/components/pdf/pdfShowAll'
+Vue.component("pdfShowAll", pdfShowAll)
+
+import pdfPage from '@/components/pdf/pdfPage'
+Vue.component("pdfPage", pdfPage)
 /** mixin *******************************************************************************************************/
 import baseFormMixin from "@/mixins/baseForm";
 Vue.mixin(baseFormMixin)

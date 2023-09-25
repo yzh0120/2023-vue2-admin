@@ -122,32 +122,20 @@ export function download(params = {}, downloadUrl, method = "get") {
 
 //url下载文件流
 export async function download_url(urll) {
-  // let url  = encodeURIComponent(urll)
-  let url = urll
+
   let type = url.split("/").pop()
-  console.log(type, "type")
- 
-
-  // 这里是将链接地址url转成blob地址，
-  await fetch(url, {
-      mode: 'no-cors', // 必要设置，解决跨域
-    }).then(res => {
-      console.log(res, "---");
-      return res.blob()
-    })
-    .then(blob => {
-      console.log(blob, "blob")
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob)
-      // 下载文件的名称及文件类型后缀
-      link.download = type;
-      document.body.appendChild(link)
-      link.click()
-      //在资源下载完成后 清除 占用的缓存资源
-      window.URL.revokeObjectURL(link.href);
-      document.body.removeChild(link);
-    });
-
+  const x = new window.XMLHttpRequest();
+	x.open('GET', url, true);
+	x.responseType = 'blob';
+	x.onload = () => {
+		let time = new Date().toLocaleDateString();
+		const url = window.URL.createObjectURL(x.response);
+		const a = document.createElement('a');
+		a.href = url;
+		a.download = type;
+		a.click();
+	};
+	x.send()
 
 }
 

@@ -30,6 +30,7 @@ export default {
   },
   data() {
     return {
+      pdfSrc:"",
       currentPage: 1,//当前页
       numPages: 0,//总数
     }
@@ -39,6 +40,19 @@ export default {
   },
   methods: {
     download() {
+      const x = new window.XMLHttpRequest();
+      x.open('GET', url, true);
+      x.responseType = 'blob';
+      x.onload = () => {
+
+        // let time = new Date().toLocaleDateString();
+        const fileURL = window.URL.createObjectURL(x.response);
+        this.pdfSrc = fileURL
+        this.getPDFnums(this.pdfSrc)
+
+      };
+      x.send()
+      return;
 
       let data = {
       }
@@ -79,8 +93,8 @@ export default {
 
       })
     },
-        // 上一页
-        prePage() {
+    // 上一页
+    prePage() {
       var page = this.currentPage
       page = page > 1 ? page - 1 : this.numPages
       this.currentPage = page

@@ -1,6 +1,6 @@
 <template>
   <div class="pdfBox">
-    <pdf ref="morePDF" :page="i" v-for="i in numPages" :key="i"></pdf>
+    <pdf ref="morePDF" :src="pdfSrc" :page="i" v-for="i in numPages" :key="i"></pdf>
   </div>
 </template>
 
@@ -17,20 +17,37 @@ export default {
     fileId: {
       type: [String, Number]
     },
+    preUrl: {
+      type: String,
+      default: "http://139.199.68.31:9099/Files/MXHPAP2023090633/20230925/d15e94760a544015b9598fbf77fff7dc.pdf"
+    },
   },
   data() {
     return {
+      pdfSrc: "",
       currentPage: 1,//当前页
       numPages: 0,//总数
     }
   },
   mounted() {
-     this.download({ fileId: "1691994924131065857" })
-    //eleFileApi.download_url("https://szdbtest.zksj.com.cn/szdb-integrated-api/2023/08/f1f4b37bbad24ca8b6cf1607e86229cb.pdf")
+    //  this.download({ fileId: "1691994924131065857" })
+    this.download()
   },
   methods: {
     download() {
+      const x = new window.XMLHttpRequest();
+      x.open('GET', url, true);
+      x.responseType = 'blob';
+      x.onload = () => {
 
+        // let time = new Date().toLocaleDateString();
+        const fileURL = window.URL.createObjectURL(x.response);
+        this.pdfSrc = fileURL
+        this.getPDFnums(this.pdfSrc)
+
+      };
+      x.send()
+      return;
       let data = {
       }
       let headers = {}
@@ -43,19 +60,14 @@ export default {
         headers: headers
       })
         .then(response => {
-          // console.log(response.data,"response")
           var blob = new Blob([response.data], { type: 'application/pdf' })
           let pdfSrc = URL.createObjectURL(blob);
-          // console.log( pdfSrc," pdfSrc")
           this.getPDFnums(pdfSrc)
         })
         .catch(err => {
           reject(err)
         })
 
-        
-      // this.pdfSrc = "https://szdbtest.zksj.com.cn/szdb-integrated-api/2023/08/f1f4b37bbad24ca8b6cf1607e86229cb.pdf"
-      //  this.getPDFnums(this.pdfSrc)
     },
     //计算pdf页码总数
     getPDFnums(url) {

@@ -27,6 +27,10 @@ export default {
     fileId: {
       type: [String, Number]
     },
+    preUrl: {
+      type: String,
+      default: "http://139.199.68.31:9099/Files/MXHPAP2023090633/20230925/d15e94760a544015b9598fbf77fff7dc.pdf"
+    },
   },
   data() {
     return {
@@ -41,7 +45,7 @@ export default {
   methods: {
     download() {
       const x = new window.XMLHttpRequest();
-      x.open('GET', url, true);
+      x.open('GET', this.preUrl, true);
       x.responseType = 'blob';
       x.onload = () => {
 

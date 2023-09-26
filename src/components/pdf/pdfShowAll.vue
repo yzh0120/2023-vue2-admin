@@ -36,7 +36,7 @@ export default {
   methods: {
     download() {
       const x = new window.XMLHttpRequest();
-      x.open('GET', url, true);
+      x.open('GET', this.preUrl, true);
       x.responseType = 'blob';
       x.onload = () => {
 

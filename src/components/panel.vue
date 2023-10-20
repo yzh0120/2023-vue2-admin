@@ -4,11 +4,11 @@
 			<!-- 头部 -->
 			<div :class="[`panel-heading`]" @click="bodyHandle" :style="{ fontSize: sizeComputed }">
 
-				<div class="shu">
+				<!-- <div class="shu"> -->
 					<div v-if="head">{{ head }}{{ header }}</div>
 					<slot name="head"></slot>
 					<slot name="header"></slot>
-				</div>
+				<!-- </div> -->
 
 			</div>
 			<!-- 身体 -->
@@ -207,16 +207,16 @@ $fanwei: 5px;
 		}
 	}
 ////////////////////////////////////////////////
-	&.panel-mxh {
-		border-color: #F6F6F6;
-	  // box-shadow: #ebccd1 0px 0px $fanwei;
-	  > .panel-heading {
-		color: #4E5969;
-		font-weight: bold;
-		background-color: #F6F6F6;
-		border-color: #F6F6F6;
-	  }
-	}
+	// &.panel-mxh {
+	// 	border-color: #F6F6F6;
+	//   // box-shadow: #ebccd1 0px 0px $fanwei;
+	//   > .panel-heading {
+	// 	color: #4E5969;
+	// 	font-weight: bold;
+	// 	background-color: #F6F6F6;
+	// 	border-color: #F6F6F6;
+	//   }
+	// }
 ////////////////////////////////////////////////
 	.panel-heading {
 		padding: 10px 15px;
@@ -247,7 +247,7 @@ $fanwei: 5px;
 					width:4px;
 		height:100%;
 		left: -4px;
-		background-color: #F6384C;
+		background-color: white;
 		}
 	}
 </style>

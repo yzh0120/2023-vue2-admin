@@ -1,10 +1,10 @@
 <template>
   <div>
-    <panel type="mxh" :close="close">
+    <!-- <panel type="mxh" :close="close">
       <div slot="header">
         mxh
       </div>
-    </panel>
+    </panel> -->
 
     <panel type="primary"  :close="close">
       <div slot="header">

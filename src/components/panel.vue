@@ -64,6 +64,24 @@ export default {
 			count: 0,
 		};
 	},
+	watch: {
+		"close": {
+			
+			handler() {
+				// alert(1)
+				// if (this.close) {
+				// 	this.showBody = false
+				// } else {
+				// 	this.height = this.$refs.innerBodyBody.offsetHeight + 'px'
+				// 	this.count++
+				// }
+
+				this.showBody = this.close
+
+				this.bodyHandle()
+			},
+		},
+	},
 	mounted() {
 		if (this.close) {
 			this.showBody = false

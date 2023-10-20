@@ -6,7 +6,7 @@
       </div>
     </panel>
 
-    <panel type="primary">
+    <panel type="primary"  :close="close">
       <div slot="header">
         primary
       </div>

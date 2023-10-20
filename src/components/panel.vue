@@ -3,9 +3,13 @@
 		<div class="panel" :class="addType">
 			<!-- 头部 -->
 			<div :class="[`panel-heading`]" @click="bodyHandle" :style="{ fontSize: sizeComputed }">
-				<div v-if="head">{{ head }}{{ header }}</div>
-				<slot name="head"></slot>
-				<slot name="header"></slot>
+
+				<div class="shu">
+					<div v-if="head">{{ head }}{{ header }}</div>
+					<slot name="head"></slot>
+					<slot name="header"></slot>
+				</div>
+
 			</div>
 			<!-- 身体 -->
 			<div class="panel-body" :style="{ height: height }">
@@ -32,7 +36,7 @@ export default {
 		header: String,
 		type: {
 			type: String,
-			default: "primary"
+			default: "default"
 		},
 		close: {
 			default: false
@@ -66,7 +70,7 @@ export default {
 	},
 	watch: {
 		"close": {
-			
+
 			handler() {
 				// alert(1)
 				// if (this.close) {
@@ -136,7 +140,7 @@ $fanwei: 5px;
 	// -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 	//   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
 
-
+////////////////////////////////////////////////
 	&.panel-default {
 		border-color: #ddd;
 
@@ -147,7 +151,7 @@ $fanwei: 5px;
 			border-color: #ddd;
 		}
 	}
-
+////////////////////////////////////////////////
 	&.panel-primary {
 		border-color: #337ab7;
 
@@ -158,7 +162,7 @@ $fanwei: 5px;
 			border-color: #337ab7;
 		}
 	}
-
+////////////////////////////////////////////////
 	&.panel-success {
 		border-color: #d6e9c6;
 
@@ -169,7 +173,7 @@ $fanwei: 5px;
 			border-color: #d6e9c6;
 		}
 	}
-
+////////////////////////////////////////////////
 	&.panel-info {
 		border-color: #bce8f1;
 
@@ -180,7 +184,7 @@ $fanwei: 5px;
 			border-color: #bce8f1;
 		}
 	}
-
+////////////////////////////////////////////////
 	&.panel-warning {
 		border-color: #faebcc;
 
@@ -191,7 +195,7 @@ $fanwei: 5px;
 			border-color: #faebcc;
 		}
 	}
-
+////////////////////////////////////////////////
 	&.panel-danger {
 		border-color: #ebccd1;
 
@@ -202,18 +206,18 @@ $fanwei: 5px;
 			border-color: #ebccd1;
 		}
 	}
-
+////////////////////////////////////////////////
 	&.panel-mxh {
-		border-color: #F6384C;
-
-		// box-shadow: #ebccd1 0px 0px $fanwei;
-		>.panel-heading {
-			color: #ffffff;
-			background-color: #F6384C;
-			border-color: #F6384C;
-		}
+		border-color: #F6F6F6;
+	  // box-shadow: #ebccd1 0px 0px $fanwei;
+	  > .panel-heading {
+		color: #4E5969;
+		font-weight: bold;
+		background-color: #F6F6F6;
+		border-color: #F6F6F6;
+	  }
 	}
-
+////////////////////////////////////////////////
 	.panel-heading {
 		padding: 10px 15px;
 		border-bottom: 1px solid transparent;
@@ -229,4 +233,21 @@ $fanwei: 5px;
 		transition: all .2s;
 	}
 }
+
+.shu{
+		padding-left: 10px;
+		position: relative;
+		// width:10px;
+		// height:10px;
+		// background-color: #F6384C;
+		&::before{
+			content: "";
+			display:inline-block;
+			position: absolute;
+					width:4px;
+		height:100%;
+		left: -4px;
+		background-color: #F6384C;
+		}
+	}
 </style>

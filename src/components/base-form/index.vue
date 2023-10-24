@@ -217,8 +217,8 @@ export default {
     this._updatedata(this.data);
     this.autoTrigger();
 
-    this.slotCheckAll()
-    this.slotSelectAll()
+    this.checkAndSelect()
+
   },
   mounted() {
     //this._addShow(this.data) //增加show 因为只会写在watch(写在data:{}也有效果)  所以不watch 暂时不用
@@ -338,6 +338,10 @@ export default {
     },
   },
   methods: {
+    checkAndSelect() {
+      this.slotCheckAll()
+      this.slotSelectAll()
+    },
     slotCheckAll() {
       this.for_List.forEach((item) => {
         if (item.slotCheck) {
@@ -346,7 +350,7 @@ export default {
       })
     },
     checkboxChange(e, item_f) {
-      if (e === item_f.trueLabel) {
+      if (e === item_f.trueLabel && item_f.show) {
         item_f.checkArr.forEach((item) => {
           this._set(this.data, item, { show: true })
         })
@@ -364,10 +368,10 @@ export default {
       })
     },
     selectChange(e, item_f) {
-      if (e === item_f.trueLabel) {
+      if (e === item_f.trueLabel && item_f.show) {
         item_f.checkArr.forEach((item) => {
           this._set(this.data, item, { show: true })
-          
+
         })
       } else {
         item_f.checkArr.forEach((item) => {
@@ -478,7 +482,7 @@ export default {
       Object.assign(e, {
         item: item,
       });
-      if(e.name){
+      if (e.name) {
         e.event = e.name
       }
       this.$emit("event", e);

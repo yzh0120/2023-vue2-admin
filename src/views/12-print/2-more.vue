@@ -5,28 +5,18 @@
         <el-button type="primary" @click="more">打印多张</el-button>
       </div>
       <div id="more" style="display: none">
-        <div
-          style="page-break-after: always"
-          v-for="(item, index) in sectionNotice"
-          class="h-printtbNotice"
-          :key="index"
-        >
+        <div style="page-break-after: always" v-for="(item, index) in sectionNotice" class="h-printtbNotice" :key="index">
           <h2 style="text-align: center; padding: 0; margin: 0">付款通知书</h2>
           <p style="display: flex; justify-content: space-between">
             <span>付款单位：深圳市民信惠融资担保有限公司</span>
 
             <span></span>
           </p>
-          <table
-            border="1"
-            cellspacing="0"
-            cellpadding="10"
-            style="
+          <table border="1" cellspacing="0" cellpadding="10" style="
               width: 100%;
               border: 1px solid #000000;
               border-collapse: collapse;
-            "
-          >
+            ">
             <tbody>
               <tr>
                 <td width="15%">收款单位</td>

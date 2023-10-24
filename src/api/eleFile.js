@@ -36,7 +36,7 @@ export function uploadFile(formData, pathUrl) {
 
 
 
-//下載文件流 get
+//下載文件流 get 导出
 export function download(params = {}, downloadUrl, method = "get") {
   if (downloadUrl == "pre") {
     if (/.xls|.xlsx|.doc|.docx|.ppt|.pptx/g.test(params.fileUrl)) {

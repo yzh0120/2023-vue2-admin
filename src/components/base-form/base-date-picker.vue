@@ -84,14 +84,16 @@ export default {
           this.item.type == "daterange"
         ) {
           return "yyyy-MM-dd";
-        } else if (this.item.type == "year") {
+        } else if (this.item.type == "year" || this.item.type == "yearMonth" ||
+          this.item.type == "yearMonthrange") {
           return "yyyy-MM";
-        } else if (
-          this.item.type == "month" ||
-          this.item.type == "monthrange"
-        ) {
-          return "MM";
         }
+        // else if (
+        //   this.item.type == "month" ||
+        //   this.item.type == "monthrange"
+        // ) {
+        //   return "MM";
+        // }
         // else if (this.item.type == "week") {
         //   return "WW";
         // }

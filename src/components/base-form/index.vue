@@ -460,14 +460,14 @@ export default {
         // componentType == "daterange"
 
         componentType == "year" ||
-        componentType == "month" ||
+        componentType == "yearMonth" ||
         componentType == "date" ||
         componentType == "dates" ||
         componentType == "week" ||
         componentType == "datetime" ||
         componentType == "datetimerange" ||
         componentType == "daterange" ||
-        componentType == "monthrange"
+        componentType == "yearMonthrange"
       ) {
         return "baseDatePicker";
       } else if (componentType == "inputrange") {

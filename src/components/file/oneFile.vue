@@ -1,8 +1,10 @@
 
 <template>
   <!-- 
+    自定义路径
 <oneFile  pathUrl="/face/project/import" style="display: inline-block;margin-left: 20px;"></oneFile>
 
+新增弹窗的文件
 <oneFile :uploadObj="uploadObj" :projectId="oneFormAlert.data.id" mode="onlyOne"  :fileId="oneFormAlert.data.currentFileId"></oneFile>
    -->
   <span>

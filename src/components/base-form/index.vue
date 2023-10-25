@@ -39,12 +39,13 @@
               </template>
               <!-- 是否复选框 -->
               <template v-if="item.slotCheck">
-                <el-checkbox v-model="formData[item.field]" :true-label="item.trueLabel" :false-label="item.falseLabel"  :disabled="item.disabled"
-                  @change="(e) => { checkboxChange(e, item) }">{{ item.slotCheck }}</el-checkbox>
+                <el-checkbox v-model="formData[item.field]" :true-label="item.trueLabel" :false-label="item.falseLabel"
+                  :disabled="item.disabled" @change="(e) => { checkboxChange(e, item) }">{{ item.slotCheck
+                  }}</el-checkbox>
               </template>
               <!-- 是否下拉框 -->
               <template v-if="item.slotSelect">
-                <el-select v-model="formData[item.field]" placeholder="请选择" style="width:100%"  :disabled="item.disabled"
+                <el-select v-model="formData[item.field]" placeholder="请选择" style="width:100%" :disabled="item.disabled"
                   @change="(e) => { selectChange(e, item) }">
                   <el-option v-for="(childItem, childIndex) in item.opt" :key="childIndex" :label="childItem.text"
                     :value="childItem.value" />
@@ -79,12 +80,13 @@
               </template>
               <!-- 是否复选框 -->
               <template v-if="item.slotCheck">
-                <el-checkbox v-model="formData[item.field]" :true-label="item.trueLabel" :false-label="item.falseLabel"  :disabled="item.disabled"
-                  @change="(e) => { checkboxChange(e, item) }">{{ item.slotCheck }}</el-checkbox>
+                <el-checkbox v-model="formData[item.field]" :true-label="item.trueLabel" :false-label="item.falseLabel"
+                  :disabled="item.disabled" @change="(e) => { checkboxChange(e, item) }">{{ item.slotCheck
+                  }}</el-checkbox>
               </template>
               <!-- 是否下拉框 -->
               <template v-if="item.slotSelect">
-                <el-select v-model="formData[item.field]" placeholder="请选择" style="width:100%"  :disabled="item.disabled"
+                <el-select v-model="formData[item.field]" placeholder="请选择" style="width:100%" :disabled="item.disabled"
                   @change="(e) => { selectChange(e, item) }">
                   <el-option v-for="(childItem, childIndex) in item.opt" :key="childIndex" :label="childItem.text"
                     :value="childItem.value" />
@@ -115,12 +117,12 @@
           </template>
           <!-- 是否复选框 -->
           <template v-if="item.slotCheck">
-            <el-checkbox v-model="formData[item.field]" :true-label="item.trueLabel" :false-label="item.falseLabel"  :disabled="item.disabled"
-              @change="(e) => { checkboxChange(e, item) }">{{ item.slotCheck }}</el-checkbox>
+            <el-checkbox v-model="formData[item.field]" :true-label="item.trueLabel" :false-label="item.falseLabel"
+              :disabled="item.disabled" @change="(e) => { checkboxChange(e, item) }">{{ item.slotCheck }}</el-checkbox>
           </template>
           <!-- 是否下拉框 -->
           <template v-if="item.slotSelect">
-            <el-select v-model="formData[item.field]" placeholder="请选择" style="width:100%"  :disabled="item.disabled"
+            <el-select v-model="formData[item.field]" placeholder="请选择" style="width:100%" :disabled="item.disabled"
               @change="(e) => { selectChange(e, item) }">
               <el-option v-for="(childItem, childIndex) in item.opt" :key="childIndex" :label="childItem.text"
                 :value="childItem.value" />
@@ -345,12 +347,12 @@ export default {
     slotCheckAll() {
       this.for_List.forEach((item) => {
         if (item.slotCheck) {
-          this.checkboxChange(this.formData[item.field], item)
+          this.checkboxChange(this.formData[item.field], item, "不是手动触发的")
         }
       })
     },
-    checkboxChange(e, item_f) {
-      if (e === item_f.trueLabel && item_f.show) {
+    checkboxChange(e, item_f, noEmit) {
+      if (e === item_f.trueLabel && item_f.show !== false) {
         item_f.checkArr.forEach((item) => {
           this._set(this.data, item, { show: true })
         })
@@ -359,16 +361,27 @@ export default {
           this._set(this.data, item, { show: false })
         })
       }
+      let obj = {
+        item: item_f,
+        name: "slotCheck",
+        event: "slotCheck",
+        value: e
+      }
+      if (noEmit) {
+
+      } else {
+        this.$emit("event", obj);
+      }
     },
     slotSelectAll() {
       this.for_List.forEach((item) => {
         if (item.slotSelect) {
-          this.selectChange(this.formData[item.field], item)
+          this.selectChange(this.formData[item.field], item, "不是手动触发的")
         }
       })
     },
-    selectChange(e, item_f) {
-      if (e === item_f.trueLabel && item_f.show) {
+    selectChange(e, item_f, noEmit) {
+      if (e === item_f.trueLabel && item_f.show !== false) {
         item_f.checkArr.forEach((item) => {
           this._set(this.data, item, { show: true })
 
@@ -377,6 +390,17 @@ export default {
         item_f.checkArr.forEach((item) => {
           this._set(this.data, item, { show: false })
         })
+      }
+      let obj = {
+        item: item_f,
+        name: "slotSelect",
+        event: "slotSelect",
+        value: e
+      }
+      if (noEmit) {
+
+      } else {
+        this.$emit("event", obj);
       }
     },
     //将不同的表单控件的rules的trigger设定

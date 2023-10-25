@@ -39,12 +39,12 @@
               </template>
               <!-- 是否复选框 -->
               <template v-if="item.slotCheck">
-                <el-checkbox v-model="formData[item.field]" :true-label="item.trueLabel" :false-label="item.falseLabel"
+                <el-checkbox v-model="formData[item.field]" :true-label="item.trueLabel" :false-label="item.falseLabel"  :disabled="item.disabled"
                   @change="(e) => { checkboxChange(e, item) }">{{ item.slotCheck }}</el-checkbox>
               </template>
               <!-- 是否下拉框 -->
               <template v-if="item.slotSelect">
-                <el-select v-model="formData[item.field]" placeholder="请选择" style="width:100%"
+                <el-select v-model="formData[item.field]" placeholder="请选择" style="width:100%"  :disabled="item.disabled"
                   @change="(e) => { selectChange(e, item) }">
                   <el-option v-for="(childItem, childIndex) in item.opt" :key="childIndex" :label="childItem.text"
                     :value="childItem.value" />
@@ -79,12 +79,12 @@
               </template>
               <!-- 是否复选框 -->
               <template v-if="item.slotCheck">
-                <el-checkbox v-model="formData[item.field]" :true-label="item.trueLabel" :false-label="item.falseLabel"
+                <el-checkbox v-model="formData[item.field]" :true-label="item.trueLabel" :false-label="item.falseLabel"  :disabled="item.disabled"
                   @change="(e) => { checkboxChange(e, item) }">{{ item.slotCheck }}</el-checkbox>
               </template>
               <!-- 是否下拉框 -->
               <template v-if="item.slotSelect">
-                <el-select v-model="formData[item.field]" placeholder="请选择" style="width:100%"
+                <el-select v-model="formData[item.field]" placeholder="请选择" style="width:100%"  :disabled="item.disabled"
                   @change="(e) => { selectChange(e, item) }">
                   <el-option v-for="(childItem, childIndex) in item.opt" :key="childIndex" :label="childItem.text"
                     :value="childItem.value" />
@@ -115,12 +115,12 @@
           </template>
           <!-- 是否复选框 -->
           <template v-if="item.slotCheck">
-            <el-checkbox v-model="formData[item.field]" :true-label="item.trueLabel" :false-label="item.falseLabel"
+            <el-checkbox v-model="formData[item.field]" :true-label="item.trueLabel" :false-label="item.falseLabel"  :disabled="item.disabled"
               @change="(e) => { checkboxChange(e, item) }">{{ item.slotCheck }}</el-checkbox>
           </template>
           <!-- 是否下拉框 -->
           <template v-if="item.slotSelect">
-            <el-select v-model="formData[item.field]" placeholder="请选择" style="width:100%"
+            <el-select v-model="formData[item.field]" placeholder="请选择" style="width:100%"  :disabled="item.disabled"
               @change="(e) => { selectChange(e, item) }">
               <el-option v-for="(childItem, childIndex) in item.opt" :key="childIndex" :label="childItem.text"
                 :value="childItem.value" />

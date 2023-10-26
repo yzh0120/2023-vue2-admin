@@ -136,6 +136,20 @@ Vue.prototype.$utils = XEUtils
 import VXETable from 'vxe-table'
 import 'vxe-table/lib/style.css'
 Vue.use(VXETable)
+VXETable.setup({
+  // size: getCookie("elsize") || "small",
+  table: {
+    border: true, //显示边框
+    stripe: true, //斑马线
+    resizable: true, //手动改变列宽度
+    showOverflow: true, //溢出悬浮
+    // align: 'center', //居中
+    highlightCurrentRow: true, //高亮当前行
+    //height:"auto",//高度自适应父容器 没有这个选项
+    showFooter: true, //显示底部
+  }
+})
+
 
 //v-charts
 import 'echarts/lib/component/dataZoom'

@@ -23,7 +23,7 @@
             </td>
             <!-- 操作 -->
             <td class="text-center">
-              <oneFile :projectId="projectId" :uploadObj="item"></oneFile>
+              <oneFile :projectId="projectId" :uploadObj="item" :selfClass="selfClass"></oneFile>
             </td>
           </tr>
         </tbody>
@@ -35,6 +35,10 @@
 <script>
 export default {
   props: {
+    selfClass: {
+      type: String,
+      default: true,
+    },
     /**
      * 是否显示上传按钮
      */

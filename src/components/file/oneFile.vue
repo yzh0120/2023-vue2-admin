@@ -29,6 +29,10 @@ import axios from 'axios';
 import * as cookieFn from '@/utils/cookie.js';
 export default {
   props: {
+    selfClass: {
+      type: String,
+      default: true,
+    },
     //模式
     mode: {
       type: String,
@@ -84,14 +88,24 @@ export default {
     this.getFiles(); //获取历史文件///////////////////切换
 
   },
+  computed: { 
+    folderId(){ 
+      if (this.uploadObj.projectId) {
+        return this.uploadObj.projectId
+      } else { 
+        return  this.projectId
+      }
+    },
+  },
   methods: {
     //获取文件
     getFiles() {
       ///////////////////切换
-      if (this.projectId) {
+      if (this.folderId) {
         eleFileApi.queryList(
           {
-            folderId: this.projectId,
+            companyName:this.selfClass,
+            folderId: this.folderId,
             taskName: this.uploadObj.taskName,
           }
         ).then((res) => {
@@ -137,8 +151,9 @@ export default {
         fd.append('file', file.file)// 传文件
       } else {
         fd.append('file', file.file)// 传文件
-        fd.append('folderId', this.projectId)
-        fd.append('taskName', this.uploadObj.taskName)
+        fd.append('folderId', this.folderId)
+        fd.append('taskName', this.uploadObj.taskName)//selfClass
+        fd.append('companyName', this.selfClass)//selfClass
       }
 
       let headers = {
@@ -229,10 +244,10 @@ export default {
         });
       }
       //如果有项目id并且没有模式  
-      else if (this.projectId && this.mode == "") {
+      else if (this.folderId && this.mode == "") {
         eleFileApi.queryList(
           {
-            folderId: this.projectId,
+            folderId: this.folderId,
             taskName: this.uploadObj.taskName,
           }
         ).then((res) => {

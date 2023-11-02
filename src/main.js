@@ -56,6 +56,9 @@ Vue.component("pdfPage", pdfPage)
 import baseFormMixin from "@/mixins/baseForm";
 Vue.mixin(baseFormMixin)
 
+import btn from "@/mixins/btn";
+Vue.mixin(btn)
+
 /** 原型链 *******************************************************************************************************/
 //常用函数
 import * as fn from "@/utils/fn.js"

@@ -44,6 +44,15 @@ export default {
         title: 'inputIcon',
         icon: "shezhi1",
       }
+    },
+    {
+      path: 'move',
+      name: 'localCopy-move',
+      component: () => import( /* webpackChunkName: "localCopy-move" */ "@/views/5-localCopy/5-move.vue"),
+      meta: {
+        title: 'localCopy-move',
+        icon: "shezhi1",
+      }
     }
   ]
 }

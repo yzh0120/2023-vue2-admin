@@ -12,7 +12,7 @@
       </div>
     </panel>
 
-    <panel type="success">
+    <panel type="success" :close="true">
       <div slot="header">
         success
       </div>

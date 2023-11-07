@@ -23,7 +23,8 @@
             </td>
             <!-- 操作 -->
             <td class="text-center">
-              <oneFile :projectId="projectId" :uploadObj="item" :selfClass="selfClass"></oneFile>
+              <oneFile :projectId="projectId" :uploadObj="item" :selfClass="selfClass" noGetApi
+                @getAllFile="getAllFile"></oneFile>
             </td>
           </tr>
         </tbody>
@@ -33,6 +34,7 @@
 </template>
 
 <script>
+import * as eleFileApi from "@/api/eleFile";
 export default {
   props: {
     selfClass: {
@@ -69,7 +71,35 @@ export default {
     return {
     };
   },
+  mounted() { 
+    this.getAllFile()
+  },
   methods: {
+    getAllFile() {
+      //获取所有的文件
+      eleFileApi.queryList(
+        {
+          folderId: this.projectId,
+        }
+      ).then((res) => {
+        if (res.code == 0) {
+          // this.uploadObj.detail = res.data;
+          let fileList = res.data || [];
+          //循环本地
+          this.fileList.forEach((item, uploadIndex) => {
+            item.detail = [];
+            //循环res.data
+            fileList.forEach((fileitem, fileIndex) => {
+              if (item.taskName == fileitem.taskName) {
+                item.detail.push(fileitem);
+              }
+            })
+          })
+        } else {
+          this.$message.error(res.msg);
+        }
+      })
+    },
     check() {
       let checkOK = true;
       try {

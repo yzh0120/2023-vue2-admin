@@ -29,6 +29,10 @@ import axios from 'axios';
 import * as cookieFn from '@/utils/cookie.js';
 export default {
   props: {
+    noGetApi: {
+      type: Boolean,
+      default: false
+    },
     selfClass: {
       type: String,
       default: true,
@@ -85,54 +89,65 @@ export default {
     };
   },
   created() {
-    this.getFiles(); //获取历史文件///////////////////切换
+    // this.getFiles(); //获取历史文件///////////////////切换
+    if (this.noGetApi) {
+
+    } else {
+      this.getFiles(); //获取历史文件///////////////////切换
+    }
 
   },
-  computed: { 
-    folderId(){ 
+  computed: {
+    folderId() {
       if (this.uploadObj.projectId) {
         return this.uploadObj.projectId
-      } else { 
-        return  this.projectId
+      } else {
+        return this.projectId
       }
     },
   },
   methods: {
+    ///////////////////切换
     //获取文件
     getFiles() {
-      ///////////////////切换
-      if (this.folderId) {
-        eleFileApi.queryList(
-          {
-            companyName:this.selfClass,
-            folderId: this.folderId,
-            taskName: this.uploadObj.taskName,
-          }
-        ).then((res) => {
-          if (res.code == 200) {
-            this.$emit("getFile", {data:res.data})
-            this.uploadObj.detail = res.data;
-            //如果是onlyOne模式 那个只会显示和id匹配的一个
-            if (this.mode == "onlyOne") {
-              if (!this.fileId) {
-                this.uploadObj.detail = []
-                return this.$message.error("文件id是空！")
-
-              }
-              // this.uploadObj.detail = [ res.data[res.data.length - 1] ];
-              let activeFile = res.data.find((e) => {
-                return e.id == this.fileId
-              })
-              if (activeFile) {
-                this.uploadObj.detail = [activeFile]
-              }
-
+      if (this.noGetApi) {
+        this.$emit("getAllFile")
+      } else {
+        if (this.folderId) {
+          eleFileApi.queryList(
+            {
+              companyName: this.selfClass,
+              folderId: this.folderId,
+              taskName: this.uploadObj.taskName,
             }
-          } else {
-            this.$message.error(res.msg);
-          }
-        })
+          ).then((res) => {
+            if (res.code == 200) {
+              this.$emit("getFile", { data: res.data })
+              this.uploadObj.detail = res.data;
+              //如果是onlyOne模式 那个只会显示和id匹配的一个
+              if (this.mode == "onlyOne") {
+                if (!this.fileId) {
+                  this.uploadObj.detail = []
+                  return this.$message.error("文件id是空！")
+
+                }
+                // this.uploadObj.detail = [ res.data[res.data.length - 1] ];
+                let activeFile = res.data.find((e) => {
+                  return e.id == this.fileId
+                })
+                if (activeFile) {
+                  this.uploadObj.detail = [activeFile]
+                }
+
+              }
+            } else {
+              this.$message.error(res.msg);
+            }
+          })
+        }
       }
+
+
 
     },
 

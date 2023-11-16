@@ -75,7 +75,7 @@ export default {
 		_set(formInfo, fieldValue, valueObj) {
 			if (this.$fn.type(valueObj) == "obj") { //this._set(this.addApplyForm, "degreeType", { opt: data,xxx:xxx });
 				formInfo.list.forEach((item) => {
-					if (item.field == fieldValue || item.slot == fieldValue) {
+					if (item.slot == fieldValue || item.field == fieldValue) {
 						for (let key of Object.keys(valueObj)) {
 							item[key] = valueObj[key]
 						}

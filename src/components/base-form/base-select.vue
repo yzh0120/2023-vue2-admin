@@ -71,6 +71,7 @@ export default {
       //兼容以前
       this.$emit("baseFormEvent", {
         name: "select",
+        activeOptObj:activeOptObj,
         value: nowValue,
       });
     },

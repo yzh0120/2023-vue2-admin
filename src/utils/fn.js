@@ -427,3 +427,69 @@ export function type(data) {
   }
 }
 
+//获取html内的文字
+export  function getSimpleText(str) {
+  if (str) {
+    str = str.replace(/<[^>]+>|&[^>]+;/g, "").trim(); //去掉所有的html标签和&nbsp;之类的特殊符合
+    return str;
+  } else {
+    return "";
+  }
+}
+
+
+///数据字典转化
+export function dataItem_text(field, value, isNumber) {
+  // console.log(value,"----111value")
+  if (value === null || value === undefined) {
+    return ""
+  }
+  let arr = store.state.config.dataItem[field]
+  // console.log(arr,"----111")
+  if (arr) {
+    if (isNumber) {
+      let obj = arr.find((e) => {
+        return Number(e.value) === value
+      })
+      if (obj) {
+        return obj.label
+      } else {
+        return ""
+      }
+    } else {
+      let obj = arr.find((e) => {
+        // console.log(e.value,value)
+        return e.value === value
+      })
+      // console.log(obj,"obj")
+      if (obj) {
+        return obj.label
+      } else {
+        return ""
+      }
+
+    }
+
+  } else {
+    return '数据字典没有此字段'
+  }
+}
+//label
+//value
+///数据字典转化
+export function dataItem_list(field, isNumber) {
+  let arr = store.state.config.dataItem[field]
+  if (arr) {
+    if (isNumber) {
+      arr.forEach((e) => {
+        e.value = Number(e.value)
+      })
+      return arr
+    } else {
+      return arr
+    }
+
+  } else {
+    return '数据字典没有此字段'
+  }
+}

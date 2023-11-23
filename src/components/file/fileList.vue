@@ -80,6 +80,7 @@ export default {
       eleFileApi.queryList(
         {
           folderId: this.projectId,
+          companyName:this.selfClass
         }
       ).then((res) => {
         if (res.code == 0) {
